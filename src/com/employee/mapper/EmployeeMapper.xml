@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 接口的全路径 -->
+<mapper namespace="com.employee.mapper.EmployeeMapper">
+
+	<select id="getEployeeAll" resultType="Employee">
+		SELECT * FROM EMPLOYEE
+	</select>
+
+	<select id="getEployeeById" resultType="Employee" >
+		SELECT * FROM EMPLOYEE WHERE id=#{id}
+	</select>
+
+	<insert id="addEmployee" parameterType="Employee">
+		insert into
+		Employee(id,xm,xb,nl,csrq)
+		values
+		(#{id},#{xm},#{xb},#{nl},#{csrq})
+	</insert>
+
+
+
+	<update id="updateEmployee" parameterType="Employee">
+		update EMPLOYEE
+		set
+		xm=#{xm},
+		xb=#{xb},
+		nl=#{nl},
+		csrq=#{csrq}
+
+		WHERE id=#{id}
+	</update>
+
+
+	<delete id="deleteEployee" parameterType="java.lang.Integer">
+		delete from EMPLOYEE WHERE id=#{id}
+	</delete>
+
+
+</mapper>
